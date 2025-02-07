@@ -33,3 +33,20 @@ function potionCost(potionID,inventaire,quantity=1){
 }
 
 console.log(potionCost("potion_soin",inventaire,3))
+
+// Fabrication de potion
+
+function craftPotion(potionID,prix=10,stock=1){
+    const findPotion=inventaire.find(p=>p.id === potionID);
+    if(!findPotion){
+        return inventaire.push({id:potionID,prix:prix,stock:stock});
+    }
+    else{
+        return console.error("Erreur, ce que vous fabriquez existe déjà.")
+    }
+}
+
+craftPotion("potion_mana");
+craftPotion("potion_de_foyer",25,5);
+craftPotion("potion_de_magie",10);
+console.log(inventaire);
